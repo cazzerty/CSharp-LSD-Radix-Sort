@@ -3,9 +3,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        RandomArray randomArray = new RandomArray();
+        ArrayManager arrayManager = new ArrayManager();
 
-        int[] intArray = randomArray.newRandomIntArray(10, 0, 200);
-        Console.WriteLine(randomArray.ArrayToString(intArray));
+        int[] intArray = arrayManager.newRandomIntArray(10, 0, 200);
+        Console.WriteLine(arrayManager.ArrayToString(intArray));
+
+        intArray = arrayManager.CreateAscendingArray(25);
+        intArray = arrayManager.ReverseArray(intArray);
+        Console.WriteLine(arrayManager.ArrayToString(intArray));
     }
 }
