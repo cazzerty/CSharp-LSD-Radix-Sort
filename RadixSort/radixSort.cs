@@ -10,6 +10,7 @@ namespace RadixSort
     {
         public int[] lsd_radixSort(int[] nums)
         {
+            if(nums.Length() <= 1) { return; }
             return nums;
         }
     }
