@@ -21,8 +21,14 @@ namespace RadixSort
         }
 
 
-        private int[] CountSort(int[] nums)
+        public int[] CountSort(int[] nums)
         {
+            int[] digitCount = new int[nums.Length];
+            for (int i = 0; i < nums.length; i++){ 
+                //digitcount[getDigit(nums[i])]++
+            }
+
+            int[] newNums = new int[nums.Length];
             return nums;
         }
     }
