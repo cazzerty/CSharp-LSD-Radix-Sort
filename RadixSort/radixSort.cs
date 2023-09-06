@@ -8,7 +8,7 @@ namespace RadixSort
 {
     internal class RadixSort
     {
-        public int[] lsd_radixSort(int[] nums)
+        public int[] Lsd_RadixSort(int[] nums)
         {
             if (nums.Length < 2) return nums;
             //Find the largest element in the array
@@ -17,6 +17,12 @@ namespace RadixSort
             {
                 if (nums[i] > largest) { largest = nums[i]; }
             }
+            return nums;
+        }
+
+
+        private int[] CountSort(int[] nums)
+        {
             return nums;
         }
     }
