@@ -17,13 +17,72 @@ namespace RadixSort
             {
                 if (nums[i] > largest) { largest = nums[i]; }
             }
+
+            int numberOfDigits = GetNumberOfDigits(largest);
+
+            for (int i = 1; i < numberOfDigits + 1; i++)
+            {
+                nums = CountSort(nums, i);
+            }
+
             return nums;
         }
 
 
-        private int[] CountSort(int[] nums)
+        public int[] CountSort(int[] nums, int digitPos)
         {
-            return nums;
+            //Built for base 10
+            int[] digitCount = new int[10];
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                digitCount[GetDigitAtPos(nums[i], digitPos)]++;
+            }
+
+            //Have running sum accross array
+            for(int i = 1; i < digitCount.Length; i++)
+            {
+                digitCount[i] = digitCount[i] + digitCount[i - 1];
+            }
+
+            //Move everything 1 to the right
+            for (int i = digitCount.Length - 1; i > 0; i--)
+            {
+                digitCount[i] = digitCount[i - 1];
+            }
+            digitCount[0] = 0;
+
+            //
+            int[] sortedNums = new int[nums.Length];
+            
+            for (int i = 0; i < nums.Length; i++)
+            {
+                int digit = GetDigitAtPos(nums[i], digitPos);
+                sortedNums[digitCount[digit]++] = nums[i];
+            }
+            
+            return sortedNums;
+        }
+
+        private int GetDigitAtPos(int num, int place)
+        {
+            double tempNum = num;
+            tempNum = num % Math.Pow(10, place);
+            tempNum = tempNum / Math.Pow(10, place - 1);
+            num = (int)tempNum;
+
+            return num;
+        }
+
+        private int GetNumberOfDigits(int num)
+        {
+            int count = 0;
+            while (num > 0)
+            {
+                num = num / 10;
+                count++;
+            }
+            return count;
         }
     }
 }

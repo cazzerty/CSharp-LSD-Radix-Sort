@@ -59,5 +59,28 @@ namespace RadixSort
             }
             return array;
         }
+
+        public int[] ShuffleArray(int[] array)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                int rndInt = rnd.Next(0, array.Length - 1);
+                var hold = array[i];
+                array[i] = array[rndInt];
+                array[rndInt] = hold;
+            }
+            return array;
+        }
+
+        public bool CheckIfSorted(int[] array)
+        {
+            if (array.Length < 2) return true;
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i] < array[i - 1]) { return false; }
+            }
+            return true;
+        }
     }
 }
