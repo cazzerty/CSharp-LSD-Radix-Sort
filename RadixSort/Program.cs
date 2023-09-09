@@ -20,10 +20,16 @@ class Program
 
         Console.WriteLine("_____________________________________________");
         int[] radixArray = arrayManager.newRandomIntArray(1000000, 1, 999999);
-
-        watch.Start();
-        //radixArray = arrayManager.CreateAscendingArray(999);
+        
+        radixArray = arrayManager.CreateAscendingArray(99999);
         radixArray = arrayManager.ShuffleArray(radixArray);
+        radixArray = arrayManager.ShuffleArray(radixArray);
+        Console.WriteLine("Array Sorted?: " + arrayManager.CheckIfSorted(radixArray));
+        
+        
+        watch.Start();
+        
+        
 
         //Console.WriteLine(arrayManager.ArrayToString(radixArray));
 
