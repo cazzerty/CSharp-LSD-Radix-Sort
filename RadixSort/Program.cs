@@ -19,11 +19,12 @@ class Program
         var watch = new System.Diagnostics.Stopwatch();
 
         Console.WriteLine("_____________________________________________");
-        int[] radixArray = arrayManager.newRandomIntArray(1000000, 1, 999999);
+        int[] radixArray = arrayManager.newRandomIntArray(4, -1, 1);
         
-        radixArray = arrayManager.CreateAscendingArray(99999);
+        //radixArray = arrayManager.CreateAscendingArray(999999);
         radixArray = arrayManager.ShuffleArray(radixArray);
         radixArray = arrayManager.ShuffleArray(radixArray);
+        Console.WriteLine(arrayManager.ArrayToString(radixArray));
         Console.WriteLine("Array Sorted?: " + arrayManager.CheckIfSorted(radixArray));
         
         
@@ -40,6 +41,7 @@ class Program
         Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
         //Console.WriteLine(arrayManager.ArrayToString(radixArray));
         Console.WriteLine("Array Sorted?: " + arrayManager.CheckIfSorted(radixArray));
+        //Console.WriteLine(arrayManager.ArrayToString(radixArray));
         
     }
 }
