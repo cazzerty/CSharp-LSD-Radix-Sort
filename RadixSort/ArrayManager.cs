@@ -29,6 +29,16 @@ namespace RadixSort
             }
             return array;
         }
+        
+        public int[] CreateAscendingArray(int size, int start)
+        {
+            int[] array = new int[size];
+            for(int i = 0; i < array.Length; i++)
+            {
+                array[i] = ++start;
+            }
+            return array;
+        }
 
         //Array tools
         public String ArrayToString(int[] array)
@@ -50,9 +60,7 @@ namespace RadixSort
             int rIndex = array.Length - 1;
             while(lIndex < rIndex && lIndex != rIndex) 
             {
-                var hold = array[lIndex];
-                array[lIndex] = array[rIndex];
-                array[rIndex] = hold;
+                (array[lIndex], array[rIndex]) = (array[rIndex], array[lIndex]);
 
                 lIndex++;
                 rIndex--;
@@ -66,9 +74,7 @@ namespace RadixSort
             for (int i = 0; i < array.Length; i++)
             {
                 int rndInt = rnd.Next(0, array.Length - 1);
-                var hold = array[i];
-                array[i] = array[rndInt];
-                array[rndInt] = hold;
+                (array[i], array[rndInt]) = (array[rndInt], array[i]);
             }
             return array;
         }
