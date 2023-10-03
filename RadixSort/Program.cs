@@ -28,7 +28,7 @@ class Program
             int[] radixArray = arrayManager.newRandomIntArray(999999, -10000000, 10000000);
 
             radixArray = arrayManager.CreateAscendingArray(999999, -5000);
-            radixArray[0] = 2147483647;
+            //radixArray[0] = 2147483647;
             
             
             radixArray = arrayManager.ShuffleArray(radixArray);
